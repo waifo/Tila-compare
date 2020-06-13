@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { Colors } from "./colors";
+
 const DropdownCoantainer = styled.div`
   align-self: center;
   padding: 5px 10px;
@@ -10,11 +12,11 @@ const Select = styled.select`
   padding: 5px 10px;
   max-width: 250px;
   border: none;
-  border-bottom: 2px solid grey;
+  border-bottom: 2px solid ${Colors.GREY};
   opacity: 0.6;
   &:focus {
     border: none;
-    border-bottom: 2px solid grey;
+    border-bottom: 2px solid ${Colors.GREY};
     outline: none;
   }
 `;
