@@ -24,7 +24,7 @@ export const fetchProducts = () => {
     dispatch(fetchProductsStart());
     try {
       const respone = await fetch(
-        "http://www.mocky.io/v2/5e9ebdaa2d00007800cb7697"
+        "https://www.mocky.io/v2/5e9ebdaa2d00007800cb7697"
       );
       const data = await respone.json();
       dispatch(fetchProductsSuccess(data.products));

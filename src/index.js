@@ -4,13 +4,16 @@ import { Provider } from "react-redux";
 
 import store from "./store";
 import App from "./App";
+import ErrorBoundary from "./components/error";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <ErrorBoundary>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById("root")
 );
