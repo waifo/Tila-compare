@@ -1,3 +1,3 @@
-export * from "./dropdown";
-export * from "./spinner";
-export * from "./colors";
+export * from "./Dropdown";
+export * from "./Spinner";
+export * from "./Colors";

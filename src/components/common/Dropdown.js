@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Colors } from "./colors";
+import { Colors } from "./Colors";
 
 const DropdownCoantainer = styled.div`
   align-self: center;
