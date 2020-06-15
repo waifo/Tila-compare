@@ -45,8 +45,8 @@ const Count = styled.div`
 `;
 
 const Comparision = () => {
-  const [selectedProducts, setSelectedProducts] = useState([]);
   const products = useSelector((store) => store.products.products);
+  const [selectedProducts, setSelectedProducts] = useState([]);
   const isFetching = useSelector((store) => store.products.isFetching);
   const dispatch = useDispatch();
 
@@ -54,18 +54,27 @@ const Comparision = () => {
     dispatch(fetchProducts());
   }, []);
 
-  if (!Object.keys(products).length) return <Spinner />;
-  if (isFetching) return <Spinner />;
-
-  const selectProduct = (event) => {
-    let product = event.target.options[event.target.selectedIndex].dataset.id;
+  const addToSelectedProducts = (product) => {
     let isDuplicate = selectedProducts.includes(product);
     !isDuplicate
       ? setSelectedProducts([...selectedProducts, product])
       : alert("Product already added :-)");
   };
 
+  if (!Object.keys(products).length) return <Spinner />;
+  if (isFetching) return <Spinner />;
+  if (!selectedProducts.length) {
+    addToSelectedProducts(Object.keys(products.compareSummary.titles)[0]);
+  }
+  // setSelectedProducts([])
+
+  const selectProduct = (event) => {
+    let product = event.target.options[event.target.selectedIndex].dataset.id;
+    addToSelectedProducts(product);
+  };
+
   const removeProduct = (event, productToRemove) => {
+    if (!selectedProducts.length) return;
     setSelectedProducts(
       selectedProducts.filter((product) => product !== productToRemove)
     );
