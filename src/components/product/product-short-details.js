@@ -12,8 +12,6 @@ const ProductSummaryContainer = styled.div`
 
 const ImageContainer = styled.div`
   position: relative;
-  max-width: 200px;
-  max-height: 200px;
   display: inline-block;
 `;
 const Image = styled.img`
