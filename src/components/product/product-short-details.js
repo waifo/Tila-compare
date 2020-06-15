@@ -10,6 +10,12 @@ const ProductSummaryContainer = styled.div`
   position: relative;
 `;
 
+const ImageContainer = styled.div`
+  position: relative;
+  max-width: 200px;
+  max-height: 200px;
+  display: inline-block;
+`;
 const Image = styled.img`
   max-width: 200px;
   max-height: 200px;
@@ -17,8 +23,8 @@ const Image = styled.img`
 
 const Remove = styled.div`
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -5px;
+  right: -5px;
   background: ${Colors.WHITE};
   width: 20px;
   height: 20px;
@@ -62,14 +68,18 @@ export const ProductShortDetails = ({
 
   return selectedProducts.map((selectedProduct, index) => (
     <ProductSummaryContainer key={index}>
-      <Image src={product.images[selectedProduct]} />
-      <Remove
-        onClick={(event) => {
-          removeProduct(event, selectedProduct);
-        }}
-      >
-        &#10006;
-      </Remove>
+      <ImageContainer>
+        <Image src={product.images[selectedProduct]} />
+        {selectedProducts.length === 1 ? null : (
+          <Remove
+            onClick={(event) => {
+              removeProduct(event, selectedProduct);
+            }}
+          >
+            &#10006;
+          </Remove>
+        )}
+      </ImageContainer>
       <ProductTitle>{product.titles[selectedProduct].title}</ProductTitle>
       <Price>
         <DiscountedPrice>
